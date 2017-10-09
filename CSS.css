@@ -1,11 +1,26 @@
-.navbar *{
-	font-size: 40px;
-	background-color: #00b33c;
-	color:#fff!important;
-	
+.NotNavbar{
+	background-color: grey;
+	color:white;
+	text-align: center;
+
 }
 
 #map {
         height: 500px;
         width: 100%;
+        border-style: solid;
+        border-width: 5px;
        }
+body {
+	background-image: url("Background.png");
+    background-size: 100%;
+    background-attachment: fixed;
+    
+}
+
+
+.AditionalContent
+{
+	background-color: grey;
+	color:white;
+}
