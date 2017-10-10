@@ -1,7 +1,7 @@
-.navbar *{
-	font-size: 40px;
+.nav-wrapper {
+	font-size: 30px;
 	background-color: #00b33c;
-	color:#fff!important;
+	color:#fff;
 	
 }
 
@@ -9,3 +9,16 @@
         height: 500px;
         width: 100%;
        }
+
+#LeftBorderOfSite {
+
+	background-color: red;
+}
+.h3_style{
+	text-align: center;
+	background-color: #fff;
+	font-size: 60px;
+}
+body{
+	background-color: #ccffdd;
+}
