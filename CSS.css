@@ -1,26 +1,35 @@
-.NotNavbar{
-	background-color: grey;
-	color:white;
-	text-align: center;
 
+.nav-wrapper,.page-footer {
+	font-size: 25px;
+	background-color: #00ccff;
+	color:#fff;
+	
+	
 }
 
 #map {
         height: 500px;
         width: 100%;
         border-style: solid;
-        border-width: 5px;
+        border-width: 3px;
+        border-color: black;
+        margin-top: 15px;
        }
-body {
-	background-image: url("Background.png");
-    background-size: 100%;
-    background-attachment: fixed;
-    
+
+.h3{
+	text-align: center;
+	background-color: #fff;
+	font-size: 60px;
 }
 
 
-.AditionalContent
-{
-	background-color: grey;
-	color:white;
-}
+html {
+    font-family: GillSans, Calibri, Trebuchet;
+  }
+
+  .parallax-container {
+      height: 700px;
+    }
+  .pulse{
+  	text-align: center;
+  }
