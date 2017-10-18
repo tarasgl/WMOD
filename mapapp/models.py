@@ -1,6 +1,6 @@
 from django.db import models
 from location_field.models.plain import PlainLocationField
-
+from django.core.validators import URLValidator
 
 # Create your models here.
 class Marker(models.Model):
@@ -10,3 +10,5 @@ class Marker(models.Model):
     city = models.CharField(max_length=255)
     location = PlainLocationField(zoom=7)
     image = models.ImageField(upload_to='', blank=True, null=True)
+    link = models.TextField(validators=[URLValidator()])
+    
