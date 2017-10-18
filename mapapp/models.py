@@ -8,4 +8,5 @@ class Marker(models.Model):
     short_description = models.CharField(max_length=200)
     full_description = models.TextField()
     city = models.CharField(max_length=255)
-    location = PlainLocationField(based_fields=['city'], zoom=7)
+    location = PlainLocationField(zoom=7)
+    image = models.ImageField(upload_to='', blank=True, null=True)
