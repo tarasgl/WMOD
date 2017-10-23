@@ -11,4 +11,6 @@ class Marker(models.Model):
     location = PlainLocationField(zoom=7)
     image = models.ImageField(upload_to='', blank=True, null=True)
     link = models.TextField(validators=[URLValidator()])
-    
+
+    def __str__(self):
+        return self.title
