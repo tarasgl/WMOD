@@ -119,13 +119,14 @@
           {%for m in markers%}
           //making variable location good view
           var location = [{{m.location}}];
-          //var location = "lat:"+resLocation.slice(0,resLocation.indexOf(","))+"lng:"+resLocation.slice(resLocation.indexOf(",")+1,resLocation.length());
-
 		        marker = new google.maps.Marker({
               position: {lat: location[0],lng: location[1]},
               map: map
             });
-            var contentString = "<h1>"+"{{m.title}}"+"</h1>";
+            var contentString = "<h2>"+"{{m.title}}"+"</h2>";
+            contentString += "<img src='{{MEDIA_URL}}{{m.image}}' width = '100px'>";
+            contentString += "<p>{{m.short_description}}</p>";
+            contentString += "<a href='{{m.link}}'>Докладніше</a>"
             google.maps.event.addListener(marker, 'click', (function(marker,contentString) {
             return function() {
 
