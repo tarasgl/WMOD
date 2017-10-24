@@ -109,7 +109,34 @@
 
 
 
-<script src="{% static 'js/javascript.js'%}"></script>
+<script>
+  function initMap() {
+          var LvivCenter = {lat: 49.838, lng: 24.023};
+          var map = new google.maps.Map(document.getElementById('map'), { zoom: 10,center: LvivCenter  });
+          var infowindow = new google.maps.InfoWindow;
+
+          var marker;
+          {%for m in markers%}
+          //making variable location good view
+          var location = [{{m.location}}];
+		        marker = new google.maps.Marker({
+              position: {lat: location[0],lng: location[1]},
+              map: map
+            });
+            var contentString = "<h2>"+"{{m.title}}"+"</h2>";
+            contentString += "<img src='{{MEDIA_URL}}{{m.image}}' width = '100px'>";
+            contentString += "<p>{{m.short_description}}</p>";
+            contentString += "<a href='{{m.link}}'>Докладніше</a>"
+            google.maps.event.addListener(marker, 'click', (function(marker,contentString) {
+            return function() {
+
+                infowindow.setContent(contentString);
+                infowindow.open(map, marker);
+              }
+            })(marker,contentString));
+          {%endfor%}
+      }
+</script>
 <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT2E5JhqquCtkDU5CNt_QEpy2TijuufMU&callback=initMap"></script>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

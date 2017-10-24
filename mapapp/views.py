@@ -4,7 +4,10 @@ from .models import Marker
 
 # Create your views here.
 def home_page(request):
-    return render(request, 'mapapp/home_page.html', {})
+    ctx ={
+        'markers': Marker.objects.all()
+    }
+    return render(request, 'mapapp/home_page.html', ctx)
 
 
 def show_markers(request):
