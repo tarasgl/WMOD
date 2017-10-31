@@ -115,27 +115,24 @@
           var map = new google.maps.Map(document.getElementById('map'), { zoom: 10,center: LvivCenter  });
           var infowindow = new google.maps.InfoWindow;
 
-          var marker;
+          var array = new Array();
+          var i = 0;
           {%for m in markers%}
           //making variable location good view
           var location = [{{m.location}}];
-		        marker = new google.maps.Marker({
-              position: {lat: location[0],lng: location[1]},
-              map: map
-            });
-            var contentString = "<h2>"+"{{m.title}}"+"</h2>";
-            contentString += "<img src='{{MEDIA_URL}}{{m.image}}' width = '100px'>";
-            contentString += "<p>{{m.short_description}}</p>";
-            contentString += "<a href='{{m.link}}'>Докладніше</a>"
-            google.maps.event.addListener(marker, 'click', (function(marker,contentString) {
-            return function() {
-
-                infowindow.setContent(contentString);
-                infowindow.open(map, marker);
-              }
-            })(marker,contentString));
+          array[i] = {lat: location[0], lng: location[1]};
+            i++;
           {%endfor%}
+        var markers = array.map(function(location) {
+            return new google.maps.Marker({
+              position: location,
+            });
+          });
+        var markerCluster = new MarkerClusterer(map, markers,
+          {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
       }
+</script>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
 </script>
 <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT2E5JhqquCtkDU5CNt_QEpy2TijuufMU&callback=initMap"></script>
 
