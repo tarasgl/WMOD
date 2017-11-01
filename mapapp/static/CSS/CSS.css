@@ -1,14 +1,14 @@
 
 .nav-wrapper,.page-footer {
 	font-size: 25px;
-	background-color: #00ccff;
+	background-color:  #144f36;
 	color:#fff;
-	
+
 	
 }
 
 #map {
-        height: 500px;
+        height: 700px;
         width: 100%;
         border-style: solid;
         border-width: 3px;
@@ -24,7 +24,8 @@
 
 
 html {
-    font-family: GillSans, Calibri, Trebuchet;
+    
+    background-color:  #e6fffa;
   }
 
   .parallax-container {
@@ -32,4 +33,37 @@ html {
     }
   .pulse{
   	text-align: center;
+  }
+   .carousel-item {
+    height: 401px !important;
+    width: 500px !important;
+  }
+
+  .nav-wrapper{
+    height: 75px !important;
+    font-size: 25px !important;
+    font-family: Cursive !important;
+  }
+  .parallax-container{
+    height: 900px !important;
+  }
+  .w3-center{
+    background-color:  #e6ffff!important;
+    border-radius: 12px !important;
+  }
+  .MapDeskription{
+    width: 80%;
+    margin: auto;
+    font-size: 35px;
+    text-align: center;
+    font-family:  Cursive !important;
+    text-shadow: 3px;
+    /*border-style: outset;
+    border-width: 10px;
+    border-color: #994d00;*/
+  }
+  .Anchor{
+   color: #804000;
+   text-decoration: underline;
+
   }
