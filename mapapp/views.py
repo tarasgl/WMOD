@@ -15,3 +15,9 @@ def show_markers(request):
         'markers': Marker.objects.all()
     }
     return render(request, 'test.html', ctx)
+
+def show_full_info(request,el_id):
+    ctx={
+        'marker': Marker.objects.get(id=el_id)
+    }
+    return render(request,'mapapp/full_info.html',ctx);

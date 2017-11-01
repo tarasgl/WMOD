@@ -146,7 +146,7 @@
             var contentString = "<h2>"+"{{m.title}}"+"</h2>";
             contentString += "<img src='{{MEDIA_URL}}{{m.image}}' width = '100px'>";
             contentString += "<p>{{m.short_description}}</p>";
-            contentString += "<a href='{{m.link}}'>Докладніше</a>"
+            contentString += "<a href='show_info/{{m.id}}/'>Докладніше</a>"
             google.maps.event.addListener(marker, 'click', (function(marker,contentString) {
             return function() {
 
