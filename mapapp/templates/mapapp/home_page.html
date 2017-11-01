@@ -20,7 +20,7 @@
 
   <nav>
     <div class="nav-wrapper">
-      
+
       <a href="#" class="brand-logo center">Львів на долоні</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="sass.html"></a></li>
@@ -41,7 +41,7 @@
   </div>
   <br>
 
-<div >      
+<div >
   <pre class="MapDeskription">
    Львів- місто настільки прекрасне, наскільки й велике,
    та й цікавинок в ньому чимало. Путаниця, та й годі!
@@ -68,7 +68,7 @@
       <a id="mapAnchor"></a>
        <pre class="MapDeskription">Тут зібрані найцікавіші місця нашого міста</pre>
        <div id="map"></div>
-       
+
 
 
     </div>
@@ -77,7 +77,7 @@
       <h1></h1>
 
     </div>
-        
+
   </div>
   <div class="parallax-container">
     <div class="parallax"><img src="{% static 'images/1.png' %}"></div>
@@ -99,9 +99,9 @@
                 <p class="grey-text text-lighten-4">Сайт знаходиться на стадії розробки</p>
               </div>
               <div class="col l4 offset-l2 s12">
-                 
+
                 <ul>
-                 
+
                 </ul>
               </div>
             </div>
@@ -109,7 +109,7 @@
           <div class="footer-copyright">
             <div class="container">
             © 2017 Copyright Text
-            
+
             </div>
           </div>
         </footer>
@@ -135,6 +135,7 @@
           var map = new google.maps.Map(document.getElementById('map'), { zoom: 13,center: LvivCenter  });
           var infowindow = new google.maps.InfoWindow;
 
+          var markers = new Array();
           var marker;
           {%for m in markers%}
           //making variable location good view
@@ -154,9 +155,15 @@
                 infowindow.open(map, marker);
               }
             })(marker,contentString));
+            markers.push(marker);
           {%endfor%}
+          var markerCluster = new MarkerClusterer(map, markers,
+           {
+              imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+            });
       }
 </script>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT2E5JhqquCtkDU5CNt_QEpy2TijuufMU&callback=initMap"></script>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
