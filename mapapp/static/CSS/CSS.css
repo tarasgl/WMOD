@@ -7,7 +7,7 @@
 	
 }
 
-#map {
+#map {  
         height: 700px;
         width: 100%;
         border-style: solid;
@@ -65,5 +65,14 @@ html {
   .Anchor{
    color: #804000;
    text-decoration: underline;
+
+  }
+  .GoTop{
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+    position: fixed;
+    right: 0px;
+    bottom: 5px;
 
   }
