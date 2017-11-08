@@ -131,7 +131,8 @@
           var location = [{{m.location}}];
 		        marker = new google.maps.Marker({
               position: {lat: location[0],lng: location[1]},
-              map: map
+              map: map,
+              icon: '{{MEDIA_URL}}{{m.icon.iconImage}}'
             });
             var contentString = "<h2>"+"{{m.title}}"+"</h2>";
             contentString += "<img src='{{MEDIA_URL}}{{m.image}}' width = '100px'>";
