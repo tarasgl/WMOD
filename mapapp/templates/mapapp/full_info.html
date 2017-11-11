@@ -21,13 +21,13 @@
   <nav>
   <a id="TopAnchor"></a>
     <div class="nav-wrapper">
-      
+
       <a href="#" class="brand-logo center">Львів на долоні</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="sass.html"></a></li>
         <!-- <img src="{% static 'images/logo.png' %}" height="70"> -->
         <li><a href="{% url 'home_page' %}">На головну</a></li>
-    
+
 
       </ul>
     </div>
@@ -40,22 +40,18 @@
   <br>
   <br>
 <div class="row">
-         <div class="col s4" id="ImageContainer"><img width="200", height="200" src="{% static 'images/empty_gallery.png' %}"></div>
-         <div class="col s8" id="DescriptionContainer">Домініканський собор, тепер греко-католицька церква Святої Євхаристії – велична архітектурна пам’ятка пізнього бароко з оригінальним скульптурним оздобленням.
-
-Монастир домініканів на цьому місці заснували ще у XIII столітті на прохання дружини українського князя Лева Даниловича, угорської принцеси Констанції, яка була католичкою і на чужині тужила за своєю вірою. Від XV і до середини XVIII століття тут стояв костел, збудований у готичному стилі.
-
-У цьому костелі і на площі перед ним 1559 року розігралася справжня війна за наречену з використанням артилерії і всіх тонкощів військової стратегії. Магнат Лукаш Ґурка добивався видачі з монастиря своєї, які він уважав, законної дружини – найбагатшої спадкоємиці Речі Посполитої, Гальшки Острозької, яка заховалася за стінами домініканського монастиря. Під час військових дій на декілька тижнів припинилася вся торгівля у Львові, а роздратований король наказав припинити війну. Врешті було перерізано водотяг, що вів до монастиря, і таким чином облога закінчилася: Гальшку видали Лукашеві.      </div>
+         <div class="col s4" id="ImageContainer"><img width="200", height="200" src="{{MEDIA_URL}}{{marker.image}}"></div>
+         <div class="col s8" id="DescriptionContainer">{{marker.full_description}}</div>
         </div>
 <div class="row">
   <div class="col l1 "></div>
 
-  <div class="col l10"> 
+  <div class="col l10">
        <pre class="MapDeskription">Де це знайи?</pre>
-       <div id="map"></div>      
+       <div id="map"></div>
   </div>
-    <div class="col l1"></div>  
-</div>      
+    <div class="col l1"></div>
+</div>
   <div class="parallax-container">
     <div class="parallax"><img src="{% static 'images/1.png' %}"></div>
   </div>
@@ -91,30 +87,27 @@
 
 <script>
   function initMap() {
-          var LvivCenter = {lat: 49.838, lng: 24.023};
-          var map = new google.maps.Map(document.getElementById('map'), { zoom: 13,center: LvivCenter  });
+    //making variable location good view
+          var location = [{{marker.location}}];
+          var map = new google.maps.Map(document.getElementById('map'), { zoom: 13,center: {lat: location[0],lng: location[1]}  });
           var infowindow = new google.maps.InfoWindow;
 
-          var marker;
-          {%for m in markers%}
-          //making variable location good view
-          var location = [{{m.location}}];
-		        marker = new google.maps.Marker({
+          var marker = new google.maps.Marker({
               position: {lat: location[0],lng: location[1]},
-              map: map
-            });
-            var contentString = "<h2>"+"{{m.title}}"+"</h2>";
-            contentString += "<img src='{{MEDIA_URL}}{{m.image}}' width = '100px'>";
-            contentString += "<p>{{m.short_description}}</p>";
-            contentString += "<a href='{{m.link}}'>Докладніше</a>"
-            google.maps.event.addListener(marker, 'click', (function(marker,contentString) {
-            return function() {
+              map: map,
+              icon: '{{MEDIA_URL}}{{marker.icon.iconImage}}',
+          });
+          var contentString = "<h2>"+"{{marker.title}}"+"</h2>";
+          contentString += "<img src='{{MEDIA_URL}}{{marker.image}}' width = '100px'>";
+          contentString += "<p>{{marker.short_description}}</p>";
+          google.maps.event.addListener(marker, 'click', (function(marker,contentString) {
+          return function() {
 
-                infowindow.setContent(contentString);
-                infowindow.open(map, marker);
-              }
-            })(marker,contentString));
-          {%endfor%}
+              infowindow.setContent(contentString);
+              infowindow.open(map, marker);
+            }
+          })(marker,contentString));
+
       }
 </script>
 <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT2E5JhqquCtkDU5CNt_QEpy2TijuufMU&callback=initMap"></script>
