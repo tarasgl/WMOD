@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mapapp',
     'location_field.apps.DefaultConfig',
+    'django_cleanup',
 ]
 
 MIDDLEWARE = [
