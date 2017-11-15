@@ -8,7 +8,7 @@
 }
 
 #map {  
-        height: 700px;
+        height: 570px;
         width: 100%;
         border-style: solid;
         border-width: 3px;
@@ -75,4 +75,16 @@ html {
     right: 0px;
     bottom: 5px;
 
+  }
+  .logo{
+    text-align: center;
+  }
+.logo1{
+    text-align: left;
+    height: 300px !important;
+    width: 200px;
+  }
+  .logo2{
+    text-align: right;
+    height: 300px !important;
   }
