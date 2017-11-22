@@ -39,3 +39,8 @@ class Marker(models.Model):
     #icon = models.CharField(max_length=200, choices=ICON_CHOICES, default='https://image.flaticon.com/icons/svg/89/89013.svg')
     def __str__(self):
         return self.title
+
+class Carousel(models.Model):
+  name = models.ForeignKey(Marker, blank=True, null=True)
+  def __str__(self):
+      return str(self.name)

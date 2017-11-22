@@ -1,11 +1,17 @@
 from django.shortcuts import render
 
 from .models import Marker
+from .models import Carousel
+from .models import Icon
+
+
 
 # Create your views here.
 def home_page(request):
     ctx ={
-        'markers': Marker.objects.all()
+        'markers': Marker.objects.all(),
+        'pictures': Carousel.objects.all(),
+        'icons': Icon.objects.all()
     }
     return render(request, 'mapapp/home_page.html', ctx)
 
