@@ -20,15 +20,15 @@
 
   <nav>
     <div class="nav-wrapper">
-     
-     
+
+
         <!-- <a href="#" class="brand-logo center">Львів на долоні</a> -->
-    
+
         <div class="logo"><a href="#"><img src="{% static 'images/logo2.png' %}"></a></div>
         <div class="logo1"><img  src="{% static 'images/logo_test.png' %}"></div>
-              
+
     </div>
-    
+
   </nav>
   <div class="parallax-container">
     <div class="parallax"><img src="{% static 'images/paralaxImage.jpg' %}">
@@ -48,15 +48,13 @@
 </div>
  <div class="row">
      <div class="carousel">
-          <a class="carousel-item"><img  src="{% static 'images/carousel1.jpg'%}"></a>
-          <a class="carousel-item"><img  src="{% static 'images/carousel2.jpg'%}"></a>
-          <a class="carousel-item"><img  src="{% static 'images/carousel3.jpg'%}"></a>
-          <a class="carousel-item"><img  src="{% static 'images/carousel4.jpg'%}"></a>
-          <a class="carousel-item"><img  src="{% static 'images/carousel5.jpg'%}"></a>
-          <a class="carousel-item"><img  src="{% static 'images/carousel6.jpg'%}"></a>
+       {%for m in pictures%}
+          <a class="carousel-item" href='show_info/{{m.name.id}}/'><img src="{{MEDIA_URL}}{{m.name.image}}"  style="width:  530px !important;
+             height: 400px !important;"></a>
+       {%endfor%}
         </div>
     <div class="col s1 ">
-      
+
     </div>
 
     <div class="col s10">
@@ -68,13 +66,13 @@
 
     </div>
     <div class="col s1 ">
-      
-    </div>
-
 
     </div>
 
-  
+
+    </div>
+
+
   <div class="parallax-container">
     <div class="parallax"><img src="{% static 'images/1.png' %}"></div>
   </div>
@@ -147,7 +145,7 @@
            {
               imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
             });
-      }
+      }  
 </script>
 <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT2E5JhqquCtkDU5CNt_QEpy2TijuufMU&callback=initMap"></script>
