@@ -49,22 +49,31 @@
  <div class="row">
      <div class="carousel">
        {%for m in pictures%}
-          <a class="carousel-item" href='show_info/{{m.name.id}}/'><img src="{{MEDIA_URL}}{{m.name.image}}"  style="width:  530px !important;
+          <a class="carousel-item" href='show_info/{{m.name.id}}/'><img src="{{MEDIA_URL}}{{m.name.image}}"  style="width:  auto !important;
              height: 400px !important;"></a>
        {%endfor%}
         </div>
     <div class="col s1 ">
-
-    </div>
+  </div>
 
     <div class="col s10">
       <a id="mapAnchor"></a>
        <p class="MapDeskription">Тут зібрані найцікавіші місця нашого міста</p>
+       {%for m in icons%}
+         <div class="chip">
+           <a href="">
+            <img src='{{MEDIA_URL}}{{m.iconImage}}'>{{m.iconType}}
+          </a>
+              </div>
+        {%endfor%}
+
+
        <div id="map"></div>
 
 
 
     </div>
+
     <div class="col s1 ">
 
     </div>
@@ -145,7 +154,10 @@
            {
               imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
             });
-      }  
+      }
+      $(document).ready(function(){
+            $('.carousel').carousel();
+          });
 </script>
 <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT2E5JhqquCtkDU5CNt_QEpy2TijuufMU&callback=initMap"></script>
