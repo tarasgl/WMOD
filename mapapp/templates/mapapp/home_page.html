@@ -4,7 +4,8 @@
 <head>
 
   <meta charset="utf-8">
-  <title>WMOD</title>
+  <title >Львів на долоні</title>
+  <link rel="icon"  href="{% static 'images/logo_title.png' %}" type="images/x-icon">
       <!--Import Google Icon Font-->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -60,9 +61,9 @@
       <a id="mapAnchor"></a>
        <p class="MapDeskription">Тут зібрані найцікавіші місця нашого міста</p>
        {%for m in icons%}
-         <div class="chip">
-           <a href="">
-            <img src='{{MEDIA_URL}}{{m.iconImage}}'>{{m.iconType}}
+         <div class="chip" onclick="initMap('{{m.iconType}}')">
+           <a>
+            <img  src='{{MEDIA_URL}}{{m.iconImage}}'>{{m.iconType}}
           </a>
               </div>
         {%endfor%}
@@ -122,7 +123,7 @@
 
 
 <script>
-  function initMap() {
+  function initMap(nameicon) {
           var LvivCenter = {lat: 49.838, lng: 24.023};
           var map = new google.maps.Map(document.getElementById('map'), { zoom: 13,center: LvivCenter  });
           var infowindow = new google.maps.InfoWindow;
@@ -132,6 +133,8 @@
           {%for m in markers%}
           //making variable location good view
           var location = [{{m.location}}];
+          if ("{{m.icon.iconType}}"==nameicon || !nameicon)
+          {
 		        marker = new google.maps.Marker({
               position: {lat: location[0],lng: location[1]},
               map: map,
@@ -149,6 +152,7 @@
               }
             })(marker,contentString));
             markers.push(marker);
+          }
           {%endfor%}
           var markerCluster = new MarkerClusterer(map, markers,
            {

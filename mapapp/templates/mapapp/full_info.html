@@ -4,7 +4,8 @@
 <head>
 
   <meta charset="utf-8">
-  <title>WMOD</title>
+  <title>Львів на долоні</title>
+  <link rel="icon"  href="{% static 'images/logo_title.png' %}" type="images/x-icon">
       <!--Import Google Icon Font-->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -22,14 +23,18 @@
   <a id="TopAnchor"></a>
     <div class="nav-wrapper">
 
-      <a href="#" class="brand-logo center">Львів на долоні</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <!-- <a href="#" class="brand-logo center">Львів на долоні</a> -->
+      <ul>
+      <li><a href="{% url 'home_page' %}">На головну</a></li>
+      <div class="logo"><a href="#"><img src="{% static 'images/logo2.png' %}"></a></div>
+      </ul>
+      <!-- <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="sass.html"></a></li>
-        <!-- <img src="{% static 'images/logo.png' %}" height="70"> -->
+        <img src="{% static 'images/logo.png' %}" height="70">
         <li><a href="{% url 'home_page' %}">На головну</a></li>
 
 
-      </ul>
+      </ul> -->
     </div>
 
   </nav>
