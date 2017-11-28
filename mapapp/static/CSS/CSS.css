@@ -26,7 +26,8 @@
 html {
     
     background-color:  #e6fffa;
-  }
+    
+}
 
   .parallax-container {
       height: 700px;
@@ -56,7 +57,7 @@ html {
     margin: auto;
     font-size: 35px;
     text-align: center;
-    font-family:  Cursive !important;
+    font-family:  italic !important;
     text-shadow: 3px;
     /*border-style: outset;
     border-width: 10px;
@@ -87,4 +88,25 @@ html {
   .logo2{
     text-align: right;
     height: 300px !important;
+  }
+    .chip:hover{
+   /* color: #4fba85;  Цвет ссылки при наведении на нее курсора мыши   */
+    background: #4fba85; /* Цвет фона */
+
+
+  }
+  .chip{
+    cursor: pointer;
+    font-style: Roboto;
+    font-size :19px;
+    background-color:  #e6fffa;
+  }
+  .AllChips{
+   
+    font-weight:bold;
+
+  }
+  .Border1{
+
+    border-style: solid !important;
   }
