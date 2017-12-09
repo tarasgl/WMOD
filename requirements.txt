@@ -2,6 +2,6 @@ Django==1.11
 django-cleanup==1.0.1
 django-location-field==2.0.3
 olefile==0.44
-Pillow==2.5.0
+Pillow==2.3.0
 pytz==2017.2
 six==1.11.0
