@@ -18,7 +18,7 @@
 
 </head>
 
-
+<body>
   <nav>
     <div class="nav-wrapper">
 
@@ -27,13 +27,14 @@
 
         <div class="logo"><a href="#"><img src="{% static 'images/logo2.png' %}"></a></div>
 
+
     </div>
 
   </nav>
   <div class="parallax-container">
-    <div class="parallax"><img src="{% static 'images/paralaxImage.jpg' %}">
+    <div class="parallax"><img src="{% static 'images/backgroundImage.jpg' %}">
         <div class="w3-display-middle" style="white-space:nowrap;">
-            <span class="w3-center w3-padding-large  w3-xlarge w3-wide w3-animate-opacity">Прекрасне місто Лева... <span class="w3-hide-big"></span></span>
+            <span class="w3-center w3-padding-large  w3-xlarge w3-wide w3-animate-opacity">Пам’ятки художнього дерева Закарпаття<span class="w3-hide-big"></span></span>
        </div>
     </div>
   </div>
@@ -41,9 +42,14 @@
 
 <div >
   <p class="MapDeskription">
-   Львів- місто настільки прекрасне, наскільки й велике,
-   та й цікавинок в ньому чимало. Путаниця, та й годі!
-   Тому ми їх всіх зібрали в одному <a class="Anchor"  href="#mapAnchor">місці</a>- на твоєму моніторі.
+   Інтерактивна карта «Пам’ятки художнього дерева Закарпаття» є частиною дослідницького проекту з вивчення
+   сакральної дерев’яної архітектури Західної України, над яким працює НДС Львівської національної академії
+    мистецтв. За матеріалами експедицій сформовано базу теоретичних і візуальних матеріалів, укладених у формі
+     карти. Такий формат дає змогу цілісно представити значну кількість архітектурних об’єктів одночасно –
+      на <a class="Anchor"  href="#mapAnchor">мапі</a> з чітким географічним районуванням – і при цьому точно локалізувати кожну пам’ятку,
+      з додатковою інформацією про неї. Світлини фіксують актуальний стан дерев’яних храмів й низки унікальни
+      х збережених житлових і господарських споруд Закарпаття. Окрім того, на карті позначено вже втрачені
+      пам’ятки – із залученням фотознімків з архівних збірок і приватних колекцій. <a class="Anchor"  href="#mapAnchor"></a>
   </p>
 </div>
  <div class="row">
@@ -54,26 +60,26 @@
        {%endfor%}
         </div>
         <a id="mapAnchor"></a>
-       <p class="MapDeskription">Тут зібрані найцікавіші місця нашого міста</p>
-    <div class="col s2 ">
+       
+    <div class="col l2 s3">
       {%for m in icons%}
          <div class="chip" onclick="initMap('{{m.iconType}}')">
            <a>
-            <img  src='{{MEDIA_URL}}{{m.iconImage}}'>{{m.iconType}}
+            <img  src='{{MEDIA_URL}}{{m.iconImage}}'> &nbsp; {{m.iconType}}
           </a>
-              </div>
+          </div>
         {%endfor%}
-        <div class="chip"  onclick="initMap()">
+        <div class="chip" style="font-size:16px !important;" onclick="initMap()">
            <a class="AllChips">
             Усі маркери
           </a>
               </div>
   </div>
 
-    <div class="col s9">
-      
-       
-        
+    <div class="col l9 s8">
+
+
+
 
 
        <div id="map"></div>
@@ -82,7 +88,7 @@
 
     </div>
 
-    <div class="col s1 ">
+    <div class="col l1 s1 ">
 
     </div>
 
@@ -91,7 +97,7 @@
 
 
   <div class="parallax-container">
-    <div class="parallax"><img src="{% static 'images/1.jpg' %}"></div>
+    <div class="parallax"><img src="{% static 'images/backgroundImage.jpg' %}"></div>
   </div>
 
   <div class="row">
@@ -106,9 +112,9 @@
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-               <h3 class="white-text">Виконала команда WMOD</h3>
-                <h5 class="white-text" >Тарас Глуховецький(tarasgl)</h5>
-                <h5 class="white-text" >Кошелюк Валентина</h5>
+                <h3 class="white-text">Виконала команда WMOD</h3>
+                <h5 class="white-text" >Тарас Глуховецький</h5>
+                <h5 class="white-text" >Валентина Кошелюк</h5>
                 <h5 class="white-text" >Михайло Леськів</h5>
                 <h5 class="white-text" >Артур Данканич</h5>
                 <h5 class="white-text" >Марта Бобик</h5>
@@ -124,7 +130,7 @@
           </div>
           <div class="footer-copyright">
             <div class="container">
-            © 2017 WMOD Team
+            © 2017 WMOD team
 
             </div>
           </div>

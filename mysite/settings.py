@@ -103,7 +103,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+LOCATION_FIELD ={
+    'provider.google.api_key': 'AIzaSyBVfyLoOpNvLDFrmnRkLrORBp1MLjT-Jdw',
+}
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
